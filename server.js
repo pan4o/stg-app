@@ -7,13 +7,11 @@ var express = require('express'),
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-/*app.get('/', function (request, response) {
-    response.render('index.ejs');
-});*/
+app.get('/', function(request, response) {
+    response.sendFile(path.join(__dirname + '/index.html'));
+});
 
-app.get('/', function(req, res) { res.sendFile(path.join(__dirname + '/index.html')); });
-
-/*app.use(express.static('./view'));*/
+app.use("/js", express.static(__dirname + '/js'));
 
 app.listen(3000, function () {
     console.log('work on 3000 port!');
