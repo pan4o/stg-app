@@ -1,0 +1,20 @@
+{
+  "name": "stg",
+  "version": "1.0.0",
+  "description": "stg-app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pan4o/stg-app.git"
+  },
+  "author": "pan4o",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pan4o/stg-app/issues"
+  },
+  "homepage": "https://github.com/pan4o/stg-app#readme"
+}
