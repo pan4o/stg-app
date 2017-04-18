@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/pan4o/stg-app/issues"
   },
-  "homepage": "https://github.com/pan4o/stg-app#readme"
+  "homepage": "https://github.com/pan4o/stg-app#readme",
+  "devDependencies": {
+    "webpack": "^2.4.1"
+  }
 }
