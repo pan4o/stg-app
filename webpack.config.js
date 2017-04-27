@@ -2,9 +2,9 @@
 
 module.exports = {
 	entry: {
-		main: "./public/js/main",
+		main: "./src/js/entry-point",
 	},
 	output: {
-		filename: "./public/js/bundle.js"
+		filename: "./src/bundle.js"
 	}
 }
