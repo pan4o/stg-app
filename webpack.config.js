@@ -6,5 +6,14 @@ module.exports = {
 	},
 	output: {
 		filename: "./src/bundle.js"
+	},
+	module: {
+		loaders: [
+			{
+				test: /\.jsx?$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/
+			}
+		]
 	}
 }
