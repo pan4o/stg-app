@@ -1,3 +1,4 @@
 
-const main = require('./main');
-const test = require('./test');
+var hole = require('./hole');
+var game = require('./game');
+var index = require('./index');

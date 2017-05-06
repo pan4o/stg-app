@@ -28,6 +28,10 @@
   },
   "homepage": "https://github.com/pan4o/stg-app#readme",
   "devDependencies": {
+    "css-loader": "^0.28.1",
+    "style-loader": "^0.17.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "webpack": "^2.4.1"
   }
 }
