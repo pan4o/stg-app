@@ -5,11 +5,18 @@ import Hole from './hole';
 
 class Game extends React.Component {
 	render () {
+
+		var holes = [];
+
+		for (var i=0; i < this.props.count; i++) {
+			holes.push(<Hole key={i} />);
+		}
+
 		return (
 			<div className="game-interface">
-				<Hole />
+				{holes}
 			</div>
-		)
+		);
 	}
 }
 
