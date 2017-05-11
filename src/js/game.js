@@ -4,11 +4,12 @@ import style from '../styl/style.styl';
 import Hole from './hole';
 
 class Game extends React.Component {
+
 	render () {
 
 		var holes = [];
 
-		for (var i=0; i < this.props.count; i++) {
+		for (var i=0; i < this.props.holesCount; i++) {
 			holes.push(<Hole key={i} />);
 		}
 
@@ -17,7 +18,13 @@ class Game extends React.Component {
 				{holes}
 			</div>
 		);
+
 	}
+
 }
+
+Game.defaultProps = {
+	holesCount: 5
+};
 
 export default Game;
