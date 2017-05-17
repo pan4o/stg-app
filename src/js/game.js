@@ -5,23 +5,36 @@ import Hole from './hole';
 
 class Game extends React.Component {
 
+	constructor(props) {
+
+		super(props);
+		this.holes = [];
+
+	}
+
 	render () {
 
-		var holes = [];
+		var i,
+			hole,
+			count = this.props.holesCount;
 
-		for (var i=0; i < this.props.holesCount; i++) {
-			holes.push(<Hole key={i} />);
+		for (i = 0; i < count; i++) {
+
+			hole = <Hole key={i} />;
+
+			this.holes.push(hole);
+
 		}
 
 		return (
 			<div className="game-interface">
-				{holes}
+				{this.holes}
 			</div>
 		);
 
 	}
 
-}
+};
 
 Game.defaultProps = {
 	holesCount: 5
