@@ -7,7 +7,7 @@ class Hole extends React.Component {
 		return (
 			<div
 				className='hole'
-				ref={(hole) => { this.node = hole; }}
+				style={this.props.topPosition}
 			>
 			</div>
 		)
