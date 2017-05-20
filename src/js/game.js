@@ -13,14 +13,15 @@ class Game extends React.Component {
 
 		this.holes = [];
 		this.setTopPosition.bind(this);
+		this.getHoles.bind(this);
 
 	}
 
-	setTopPosition(index) {
+	setTopPosition(holeIndex) {
 
 		var topPosition;
 
-		index % 2 ? topPosition = 50 : 0;
+		holeIndex % 2 ? topPosition = 50 : 0;
 
 		return ({
 			top: topPosition
@@ -28,10 +29,10 @@ class Game extends React.Component {
 
 	}
 
-	render () {
+	getHoles() {
 
 		var i,
-			count = this.props.holesCount;
+		count = this.props.holesCount;
 
 		for (i = 0; i < count; i++) {
 
@@ -42,6 +43,11 @@ class Game extends React.Component {
 			);
 
 		}
+	}
+
+	render () {
+
+		this.getHoles();
 
 		return (
 			<div className="game-interface">
