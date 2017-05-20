@@ -15,14 +15,13 @@ class Game extends React.Component {
 	render () {
 
 		var i,
-			hole,
 			count = this.props.holesCount;
 
 		for (i = 0; i < count; i++) {
 
-			hole = <Hole key={i} />;
-
-			this.holes.push(hole);
+			this.holes.push(
+				<Hole key={i} />
+			);
 
 		}
 
@@ -33,7 +32,6 @@ class Game extends React.Component {
 		);
 
 	}
-
 };
 
 Game.defaultProps = {
