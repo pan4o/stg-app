@@ -2,6 +2,8 @@
 import React from 'react';
 import style from '../styl/style.styl';
 import Hole from './hole';
+import GoodGuy from './good-guy';
+import BadGuy from './bad-guy';
 
 
 
