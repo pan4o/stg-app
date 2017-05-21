@@ -12,20 +12,7 @@ class Game extends React.Component {
 		super(props);
 
 		this.holes = [];
-		this.setTopPosition.bind(this);
 		this.getHoles.bind(this);
-
-	}
-
-	setTopPosition(holeIndex) {
-
-		var topPosition;
-
-		holeIndex % 2 ? topPosition = 50 : 0;
-
-		return ({
-			top: topPosition
-		});
 
 	}
 
@@ -36,10 +23,8 @@ class Game extends React.Component {
 
 		for (i = 0; i < count; i++) {
 
-			this.setTopPosition();
-
 			this.holes.push(
-				<Hole key={i} topPosition={this.setTopPosition(i)} />
+				<Hole key={i} />
 			);
 
 		}
