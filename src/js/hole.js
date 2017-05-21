@@ -9,6 +9,7 @@ class Hole extends React.Component {
 				className='hole'
 				style={this.props.topPosition}
 			>
+				{this.props.man}
 			</div>
 		)
 	}
