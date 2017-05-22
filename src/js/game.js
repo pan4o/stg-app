@@ -9,21 +9,25 @@ import BadGuy from './bad-guy';
 
 class Game extends React.Component {
 
-	constructor(props) {
+	constructor (props) {
 
 		super(props);
 
 		this.holes = [];
+		this.holesCount = this.props.holesCount
 		this.getHoles.bind(this);
 
 	}
 
-	getHoles() {
+	getRandomHole () {
+		return Math.round(Math.random() * (this.holesCount - 1));
+	}
 
-		var i,
-		count = this.props.holesCount;
+	getHoles () {
 
-		for (i = 0; i < count; i++) {
+		var i;
+
+		for (i = 0; i < this.holesCount; i++) {
 
 			this.holes.push(
 				<Hole key={i} />
@@ -33,7 +37,7 @@ class Game extends React.Component {
 	}
 
 	render () {
-
+		console.log(this.getRandomHole());
 		this.getHoles();
 
 		return (
