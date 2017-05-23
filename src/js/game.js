@@ -22,7 +22,7 @@ class Game extends React.Component {
 		return Math.round(Math.random() * (this.holesCount - 1));
 	}
 
-	componentWillMount() {
+	render () {
 
 		var i;
 
@@ -33,10 +33,6 @@ class Game extends React.Component {
 			);
 
 		}
-
-	}
-
-	render () {
 
 		return (
 			<div className="game-interface">
