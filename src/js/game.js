@@ -15,7 +15,6 @@ class Game extends React.Component {
 
 		this.holes = [];
 		this.holesCount = this.props.holesCount
-		this.getHoles.bind(this);
 
 	}
 
@@ -23,7 +22,7 @@ class Game extends React.Component {
 		return Math.round(Math.random() * (this.holesCount - 1));
 	}
 
-	getHoles () {
+	componentWillMount() {
 
 		var i;
 
@@ -34,11 +33,10 @@ class Game extends React.Component {
 			);
 
 		}
+
 	}
 
 	render () {
-		console.log(this.getRandomHole());
-		this.getHoles();
 
 		return (
 			<div className="game-interface">
