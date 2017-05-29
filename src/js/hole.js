@@ -5,7 +5,7 @@ class Hole extends React.Component {
 
 	render () {
 		return (
-			<div className='hole' style={this.props.topPosition}>
+			<div className='hole'>
 				{this.props.man}
 			</div>
 		)

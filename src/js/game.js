@@ -14,12 +14,33 @@ class Game extends React.Component {
 		super(props);
 
 		this.holes = [];
-		this.holesCount = this.props.holesCount
+		this.holesCount = this.props.holesCount;
+
+		this.mansPositions = this.getRandomHole();
+
+		this.state = {
+			goodGuyPos: this.mansPositions.goodGuyPos,
+			badGuyPos: this.mansPositions.badGuyPos
+		}
 
 	}
 
 	getRandomHole () {
-		return Math.round(Math.random() * (this.holesCount - 1));
+
+		var goodPos = Math.round(Math.random() * (this.holesCount - 1)),
+			badPos = Math.round(Math.random() * (this.holesCount - 1));
+
+		while (goodPos == badPos) {
+
+			badPos = Math.round(Math.random() * (this.holesCount - 1))
+
+		}
+
+		return {
+			goodGuyPos: goodPos,
+			badGuyPos: badPos
+		}
+
 	}
 
 	render () {
@@ -28,9 +49,25 @@ class Game extends React.Component {
 
 		for (i = 0; i < this.holesCount; i++) {
 
-			this.holes.push(
-				<Hole key={i} />
-			);
+			if (i == this.state.goodGuyPos) {
+
+				this.holes.push(
+					<Hole key={i} man={<GoodGuy />} />
+				);
+
+			} else if (i == this.state.badGuyPos) {
+
+				this.holes.push(
+					<Hole key={i} man={<BadGuy />} />
+				);
+
+			} else {
+
+				this.holes.push(
+					<Hole key={i} />
+				);
+
+			}
 
 		}
 
