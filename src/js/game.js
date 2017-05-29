@@ -45,29 +45,25 @@ class Game extends React.Component {
 
 	render () {
 
-		var i;
+		var i, hole;
 
 		for (i = 0; i < this.holesCount; i++) {
 
 			if (i == this.state.goodGuyPos) {
 
-				this.holes.push(
-					<Hole key={i} man={<GoodGuy />} />
-				);
+				hole = <Hole key={i} man={<GoodGuy />} />;
 
 			} else if (i == this.state.badGuyPos) {
 
-				this.holes.push(
-					<Hole key={i} man={<BadGuy />} />
-				);
+				hole = <Hole key={i} man={<BadGuy />} />;
 
 			} else {
 
-				this.holes.push(
-					<Hole key={i} />
-				);
+				hole = <Hole key={i} />;
 
 			}
+
+			this.holes.push(hole);
 
 		}
 
