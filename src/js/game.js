@@ -13,8 +13,8 @@ class Game extends React.Component {
 
 		super(props);
 
-		this.holes = [];
 		this.holesCount = this.props.holesCount;
+		this.gameSpeed = this.props.gameSpeed;
 
 		this.mansPositions = this.getRandomHole();
 
@@ -23,29 +23,59 @@ class Game extends React.Component {
 			badGuyPos: this.mansPositions.badGuyPos
 		}
 
+		this.interval = null;
+
 	}
 
 	getRandomHole () {
 
-		var goodPos = Math.round(Math.random() * (this.holesCount - 1)),
-			badPos = Math.round(Math.random() * (this.holesCount - 1));
+		var goodGuyPos = Math.round(Math.random() * (this.holesCount - 1)),
+			badGuyPos = Math.round(Math.random() * (this.holesCount - 1));
 
-		while (goodPos == badPos) {
+		while (goodGuyPos == badGuyPos) {
 
-			badPos = Math.round(Math.random() * (this.holesCount - 1))
+			badGuyPos = Math.round(Math.random() * (this.holesCount - 1))
 
 		}
 
 		return {
-			goodGuyPos: goodPos,
-			badGuyPos: badPos
+			goodGuyPos: goodGuyPos,
+			badGuyPos: badGuyPos
 		}
+
+	}
+
+	componentDidMount () {
+
+		var self = this,
+			newState;
+
+		this.interval = setInterval(function () {
+
+			newState = self.getRandomHole();
+
+			self.setState({
+
+				goodGuyPos: newState.goodGuyPos,
+				badGuyPos: newState.badGuyPos
+
+			});
+
+		}, this.gameSpeed)
+
+	}
+
+	componentWillMount () {
+
+		clearInterval(this.interval);
 
 	}
 
 	render () {
 
 		var i, hole;
+
+		this.holes = [];
 
 		for (i = 0; i < this.holesCount; i++) {
 
@@ -77,7 +107,8 @@ class Game extends React.Component {
 };
 
 Game.defaultProps = {
-	holesCount: 5
+	holesCount: 5,
+	gameSpeed: 1000
 };
 
 export default Game;
