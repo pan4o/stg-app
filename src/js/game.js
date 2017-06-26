@@ -2,8 +2,8 @@
 import React from 'react';
 import style from '../styl/style.styl';
 import Hole from './hole';
-import GoodGuy from './good-guy';
-import BadGuy from './bad-guy';
+import GoodMan from './good-guy';
+import BadMan from './bad-guy';
 
 
 
@@ -15,54 +15,32 @@ class Game extends React.Component {
 
 		this.holesCount = this.props.holesCount;
 		this.gameSpeed = this.props.gameSpeed;
-
-		this.mansPositions = this.getRandomHole();
+		this.interval = null;
 
 		this.state = {
-			goodGuyPos: this.mansPositions.goodGuyPos,
-			badGuyPos: this.mansPositions.badGuyPos
+			randomPosition: this.getRandomHole()
 		}
-
-		this.interval = null;
 
 	}
 
 	getRandomHole () {
 
-		var goodGuyPos = Math.round(Math.random() * (this.holesCount - 1)),
-			badGuyPos = Math.round(Math.random() * (this.holesCount - 1));
-
-		while (goodGuyPos == badGuyPos) {
-
-			badGuyPos = Math.round(Math.random() * (this.holesCount - 1))
-
-		}
-
-		return {
-			goodGuyPos: goodGuyPos,
-			badGuyPos: badGuyPos
-		}
+		return  Math.round(Math.random() * (this.holesCount - 1));
 
 	}
 
 	componentDidMount () {
 
-		var self = this,
-			newState;
+		var randomHole,
+			self = this;
 
 		this.interval = setInterval(function () {
 
-			newState = self.getRandomHole();
-
 			self.setState({
-
-				goodGuyPos: newState.goodGuyPos,
-				badGuyPos: newState.badGuyPos
-
+				randomPosition: self.getRandomHole()
 			});
 
 		}, this.gameSpeed)
-
 	}
 
 	componentWillMount () {
@@ -79,19 +57,15 @@ class Game extends React.Component {
 
 		for (i = 0; i < this.holesCount; i++) {
 
-			if (i == this.state.goodGuyPos) {
+				if (this.state.randomPosition == i) {
 
-				hole = <Hole key={i} man={<GoodGuy />} />;
+					hole = <Hole key={i} man={<GoodMan />} />;
 
-			} else if (i == this.state.badGuyPos) {
+				} else {
 
-				hole = <Hole key={i} man={<BadGuy />} />;
+					hole = <Hole key={i} />;
 
-			} else {
-
-				hole = <Hole key={i} />;
-
-			}
+				}
 
 			this.holes.push(hole);
 
@@ -108,7 +82,7 @@ class Game extends React.Component {
 
 Game.defaultProps = {
 	holesCount: 5,
-	gameSpeed: 1000
+	gameSpeed: 2000
 };
 
 export default Game;

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-class BadGuy extends React.Component {
+class BadMan extends React.Component {
 
 	render () {
 		return (
@@ -11,4 +11,4 @@ class BadGuy extends React.Component {
 }
 
 
-export default BadGuy;
+export default BadMan;
